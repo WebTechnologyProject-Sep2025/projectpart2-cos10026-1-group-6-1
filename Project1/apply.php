@@ -11,33 +11,7 @@
 </head>
 
 <body>
-  <header>
-
-    <nav>
-      <a href="index.html" class="menu_left">
-        <img src="images/logo_dataflow.png" alt="Company Logo">
-        <span>DataFlow</span>
-      </a>
-
-      <div class="menu_right_group">
-        <a href="index.html" class="menu_right">Home</a>
-        <a href="jobs.html" class="menu_right">Description</a>
-        <a href="apply.html" class="menu_right">Application</a>
-        <a href="about.html" class="menu_right">About us</a>
-      </div>
-    </nav>
-
-    <h1 id="application">APPLICATION FORM</h1>
-
-    <div class="hashtags">
-      <span>#WebDevelopment</span>
-      <span>#ComputerScience</span>
-      <span>#COS10026</span>
-      <span>#SwinburneHCMC</span>
-      <span>#Group6</span>
-    </div>
-
-  </header>
+ <?php include 'nav.inc'; include 'header.inc.php';?>
   <main class="main_container">
     <div class="form_container">
       <form class="application_form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
@@ -172,19 +146,7 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer_container">
-      <p>TheDataFlow &copy; 2025 — COS10026 Project Part 1</p>
-      <p>Contact: <a href="mailto:info@thedataflow.com.au">info@thedataflow.com.au</a></p>
-      <p>Our Jira project management link:
-        <a
-          href="https://kevinlamkhai7.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiMzYxODI3ZDVkZWM4NDI0NDhkY2QwMTFmMzhhNGEzNDYiLCJwIjoiaiJ9" target="_blank">Jira
-          Project
-        </a></p>
-      <p>Our Github repository link: <a href="https://github.com/WebTechnologyProject-Sep2025/COS10026.1-Group-6" target="_blank">Group 6
-          Github repository</a></p>
-    </div>
-  </footer>
+<?php include 'footer.php'; ?>
 </body>
 
 </html>

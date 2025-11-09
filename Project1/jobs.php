@@ -13,28 +13,7 @@
 </head>
 
 <body id="jobs_page">
-  <header>
-    <nav>
-      <a href="index.html" class="menu_left">
-        <img src="images/logo_dataflow.png" alt="Company Logo">
-        <span>DataFlow</span>
-      </a>
-      <div class="menu_right_group">
-        <a href="index.html" class="menu_right">Home</a>
-        <a href="jobs.html" class="menu_right">Description</a>
-        <a href="apply.html" class="menu_right">Application</a>
-        <a href="about.html" class="menu_right">About us</a>
-      </div>
-    </nav>
-    <h1 id="about_us">Job Descriptions</h1>
-    <div class="hashtags">
-      <span>#WebDevelopment</span>
-      <span>#ComputerScience</span>
-      <span>#COS10026</span>
-      <span>#SwinburneHCMC</span>
-      <span>#Group6</span>
-    </div>
-  </header>
+ <?php include 'nav.inc'; include 'header.inc.php';?>
 
   <main class="main_container">
     <!-- Cloud Engineer Job Section -->

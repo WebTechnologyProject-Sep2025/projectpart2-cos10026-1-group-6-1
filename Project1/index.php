@@ -12,59 +12,7 @@
 </head>
 
 <body>
-  <header>
-
-    <nav>
-      <a href="index.html" class="menu_left">
-        <img src="images/logo_dataflow.png" alt="Company Logo">
-        <span>DataFlow</span>
-      </a>
-
-      <div class="menu_right_group">
-        <a href="index.html" class="menu_right">Home</a>
-        <a href="jobs.html" class="menu_right">Description</a>
-        <a href="apply.html" class="menu_right">Application</a>
-        <a href="about.html" class="menu_right">About us</a>
-      </div>
-    </nav>
-
-    <div class="header_homepage">
-
-      <div class="header_homepage_content anim">
-        <h1 id="the_css">The</h1>
-        <h1 id="dataflow_css">DataFlow</h1>
-
-        <p><strong>The DataFlow</strong> serves as your comprehensive partner in the digital era.
-          We specialize in developing seamless, <strong>AI-powered solutions</strong> that transform
-          complex data streams into clear, actionable intelligence,
-          ensuring your business operates with <strong>unmatched efficiency and precision.</strong></p>
-        <div class="read_more_button anim">
-          <a href="apply.html">Read More</a>
-        </div>
-      </div>
-
-      <div class="robot_with_light anim">
-        <img src="images/robot_with_light.png" alt="Robot With Yellow Shadow">
-      </div>
-
-      <div id="logo_background">
-        <img src="images/logo_dataflow.png" alt="Logo Background">
-      </div>
-
-
-
-    </div>
-
-    <div class="hashtags">
-      <span>#WebDevelopment</span>
-      <span>#ComputerScience</span>
-      <span>#COS10026</span>
-      <span>#SwinburneHCMC</span>
-      <span>#Group6</span>
-    </div>
-  </header>
-
-
+  <?php include 'nav.inc'; include 'header.inc.php';?>
 
   <main class="main_container">
 
