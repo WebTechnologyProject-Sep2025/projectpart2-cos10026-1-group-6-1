@@ -55,7 +55,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <!-- Header for all other pages -->
 <header>
 
-    <h1 id="application">APPLICATION FORM</h1>
+    <h1 id="application"><?php echo $pageTitle; ?></h1>
 
     <div class="hashtags">
       <span>#WebDevelopment</span>

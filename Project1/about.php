@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+  <?php $pageTitle= "About Us" ?>
   <?php include 'nav.inc'; include 'header.inc.php';?>
 
   <!-- THIS THE MAIN CONTAINER -->

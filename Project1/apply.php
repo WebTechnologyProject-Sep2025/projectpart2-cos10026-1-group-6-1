@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <?php $pageTitle= "Application" ?>
  <?php include 'nav.inc'; include 'header.inc.php';?>
   <main class="main_container">
     <div class="form_container">

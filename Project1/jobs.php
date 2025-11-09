@@ -13,6 +13,7 @@
 </head>
 
 <body id="jobs_page">
+  <?php $pageTitle= "Job Description" ?>
  <?php include 'nav.inc'; include 'header.inc.php';?>
 
   <main class="main_container">
