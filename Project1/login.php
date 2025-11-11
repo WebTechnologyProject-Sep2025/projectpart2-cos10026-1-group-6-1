@@ -1,8 +1,8 @@
 <?php
-    session_start():
-if(isset($_SESSION['user_id'])){
+    session_start();
+    if (isset($_SESSION['user_id'])){
     header('location:manage.php');
-    exit()
+    exit();
 }
 $errormsg = $_GET['error'] ?? ''
 ?>
@@ -16,7 +16,7 @@ $errormsg = $_GET['error'] ?? ''
 <body>
     <h1>EOI DATABASE ACCESS</h1>
     <?php if ($errormsg): ?>
-        <p><?php echo htmlspecialchar($errormsg) ?></p>
+        <p><?php echo ($errormsg) ?></p>
     <?php endif ?>
     <form action="login_process.php" method="post" class="login_proc">
         <label for="">Username</label>
