@@ -1284,7 +1284,6 @@ div.name_grid {
     margin: 0px;
 }
 
-
 /* this is for positioning checkboxes in required skills fieldset */
 fieldset.reqskills {
     box-sizing: border-box;
@@ -1352,6 +1351,7 @@ textarea {
     font-weight: bold;
     color: var(--red);
     width: 100%;
+    margin: 20px;
     font-weight: bold;
 }
 
