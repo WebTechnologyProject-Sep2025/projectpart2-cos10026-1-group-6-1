@@ -74,25 +74,25 @@
         <article class="member">
           <img src="images/1_khai_aigenerated_300kb.jpg" alt="Photo 1">
           <h3 class="member_name">Nguyễn Lâm Khải</h3>
-          <p class="member_role">Job Application Flow and Form Design</p>
+          <p class="member_role">Backend Developer (PHP + Database Setup)</p>
         </article>
 
         <article class="member">
           <img src="images/2_quan_aigenerated_300kb.jpg" alt="Photo 2">
           <h3 class="member_name">Phạm Đức Minh Quân</h3>
-          <p class="member_role">Job Description Interface Design</p>
+          <p class="member_role">Frontend Integration & Documentation</p>
         </article>
 
         <article class="member">
           <img src="images/3_duyanh_aigenerated_300kb.jpg" alt="Photo 3">
           <h3 class="member_name">Vũ Duy Anh</h3>
-          <p class="member_role">Home Page Design & Optimization</p>
+          <p class="member_role">HR Management & Authentication System</p>
         </article>
 
         <article class="member">
           <img src="images/4_phuoc_aigenerated_300kb.jpg" alt="Photo 4">
           <h3 class="member_name">Thiều Quang Phước</h3>
-          <p class="member_role">About Us Page Design & Development</p>
+          <p class="member_role">Form Handling & Validation</p>
         </article>
 
       </div>
@@ -105,19 +105,16 @@
       <dl>
 
         <dt>Nguyễn Lâm Khải</dt>
-        <dd>Spearheaded the design and implementation of the comprehensive
-          Job Application Workflow and Form Structures (Apply.html)</dd>
+        <dd>Set up the database with settings.php, created jobs and eoi tables, and enabled dynamic job loading in jobs.php.</dd>
 
         <dt>Phạm Đức Minh Quân</dt>
-        <dd>Developed and refined the Job Description Interface (Jobs.html)</dd>
+        <dd>Modularized the site with PHP includes, updated about.php, added enhancements.php, and finalized project structure.</dd>
 
         <dt>Vũ Duy Anh</dt>
-        <dd>Managed the architectural design, content strategy, and performance
-          optimization of the Home Page (Index.html)</dd>
+        <dd>Built manage.php for HR management with search, update, delete, and login functions including lockout security</dd>
 
         <dt>Thiều Quang Phước</dt>
-        <dd>Orchestrated the full-stack development and content creation for
-          the About Us Page (About.html)</dd>
+        <dd>Developed process_eoi.php for form handling, validation, and secure data insertion into the database.</dd>
 
       </dl>
 
