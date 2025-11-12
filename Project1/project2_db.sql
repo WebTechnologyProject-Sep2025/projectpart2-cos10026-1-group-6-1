@@ -1,10 +1,10 @@
 
 -- remove the comment markers to create the database and tables in local MySQL server phpmyadmin`
-CREATE DATABASE project2_db;
+CREATE DATABASE IF NOT EXISTS project2_db;
 USE project2_db;
 
 --Creating eoi table
-CREATE TABLE eoi (
+CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     job_reference VARCHAR(10) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE eoi (
 
 
 --Creating jobs table
-    CREATE TABLE jobs (
+    CREATE TABLE IF NOT EXISTS jobs (
     job_id INT AUTO_INCREMENT PRIMARY KEY,
     job_reference_number VARCHAR(10) NOT NULL UNIQUE,    -- e.g. CLD01, SEC02, FED03
     job_title VARCHAR(100) NOT NULL,                     -- e.g. Cloud Engineer
@@ -92,7 +92,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
  -- Creating hr_users table
- CREATE TABLE `hr_users` (
+ CREATE TABLE IF NOT EXISTS `hr_users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(250) NOT NULL,
