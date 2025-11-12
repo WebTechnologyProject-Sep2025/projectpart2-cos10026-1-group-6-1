@@ -1,5 +1,5 @@
 
--- remove the comment markers to create the database and tables in local MySQL server phpmyadmin
+-- remove the comment markers to create the database and tables in local MySQL server phpmyadmin`
 /*
 CREATE DATABASE project2_db;
 USE project2_db;
