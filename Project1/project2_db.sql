@@ -1,9 +1,9 @@
 
 -- remove the comment markers to create the database and tables in local MySQL server phpmyadmin`
-/*
 CREATE DATABASE project2_db;
 USE project2_db;
 
+--Creating eoi table
 CREATE TABLE eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     job_reference VARCHAR(10) NOT NULL,
@@ -85,4 +85,33 @@ VALUES
  'Bachelor’s degree in Computer Science or related; strong proficiency in HTML, CSS, JavaScript; experience with responsive design.',
  'HTML, CSS, JavaScript, Responsive Design, REST APIs, Git.',
  'React, Vue.js, Angular, SASS/LESS, Webpack, Accessibility best practices.');
- */
+
+-- Start of hr_users table from hr_users.sql
+START TRANSACTION;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+ -- Creating hr_users table
+ CREATE TABLE `hr_users` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `failed_attempt` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table `hr_users`
+INSERT INTO `hr_users` (`user_id`, `username`, `password`, `failed_attempt`) VALUES
+(1, 'Duy Anh', '$2y$10$Pj68p6Bahfxeo31sIkwxzOP2R4cS3WiLI.Ag/E.38YGYQO2CyuYW2', 0),
+(2, 'Phuoc', '$2y$10$aacNGfaUWDw6vRWDj4TVhOszDWhZpvBKH0Q4Kmz4V0VBcu8z8/B02', 0),
+(3, 'Khaibatau', '$2y$10$xXPv7ADjjkKMUCvoFnDaNu8atBy/w4//sxz0NR.eh3XzsOpqsBLMC', 0),
+(4, 'Quan', '$2y$10$CtXdAqRbXzhuqhVMoVKb/OY/p8WcCAetvmMNRqTTREPiQ37ghy1bG', 0);
+
+-- Indexes for table `hr_users`
+ALTER TABLE `hr_users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+-- AUTO_INCREMENT for table `hr_users`
+ALTER TABLE `hr_users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
