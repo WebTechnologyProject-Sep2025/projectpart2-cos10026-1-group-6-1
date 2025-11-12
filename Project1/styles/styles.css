@@ -1561,3 +1561,9 @@ textarea {
         font-size: 0.95rem;
     }
 }
+.login_form{
+    text-align: center;
+}
+.login_page_title{
+    text-align: center;
+}
