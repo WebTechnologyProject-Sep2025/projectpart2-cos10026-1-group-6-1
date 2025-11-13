@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Web Technology Project">
@@ -8,169 +8,121 @@
   <meta name="author" content="Pham Duc Minh Quan">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IT Job Descriptions</title>
-  <!-- Main global styles -->
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body id="jobs_page">
-  <?php $pageTitle= "Job Description" ?>
- <?php include 'nav.inc'; include 'header.inc.php';?>
+  <?php 
+  $pageTitle = "Job Description";
+  include 'nav.inc'; 
+  include 'header.inc.php';
+  ?>
 
   <main class="main_container">
-    <!-- Cloud Engineer Job Section -->
-    <section id="job1" class="job_card">
-      <h2>Position 1: Cloud Engineer</h2>
-      <div class="job_summary">
-        <p><strong>Reference No:</strong> CLD01</p>
-        <p><strong>Reports To:</strong> Lead Cloud Architect</p>
-        <p><strong>Salary Range:</strong> $90,000 – $115,000 per annum</p>
-      </div>
+    <?php
+    // Include database settings
+    require_once 'settings.php';
+    
+    // Check if database connection is successful
+    if ($conn) {
+        // Fetch jobs from database
+        $query = "SELECT * FROM jobs ORDER BY job_id";
+        $result = mysqli_query($conn, $query);
+        
+        if ($result && mysqli_num_rows($result) > 0) {
+            echo "<!-- Jobs loaded dynamically from database -->";
+            
+            $job_count = 0;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $job_count++;
+                
+                if ($job_count > 1) {
+                    echo '<div class="job_divider"></div>';
+                }
+                ?>
+                
+                <section id="job<?php echo $job_count; ?>" class="job_card">
+                    <h2>Position <?php echo $job_count; ?>: <?php echo $row['job_title']; ?></h2>
+                    
+                    <div class="job_summary">
+                        <p><strong>Reference No:</strong> <?php echo $row['job_reference_number']; ?></p>
+                        <p><strong>Reports To:</strong> <?php echo $row['reports_to']; ?></p>
+                        <p><strong>Salary Range:</strong> <?php echo $row['salary_range']; ?></p>
+                    </div>
 
-      <h3>Position Description</h3>
-      <p>
-        The Cloud Engineer designs, deploys, and manages scalable cloud infrastructure using AWS and Azure.
-        The role involves automation, monitoring, and optimization of cloud systems to ensure high performance,
-        cost efficiency, and strong security compliance.
-      </p>
+                    <h3>Position Description</h3>
+                    <p><?php echo $row['position_description']; ?></p>
 
-      <h3>Key Responsibilities</h3>
-      <ul>
-        <li>Build and maintain virtual networks, storage, and compute instances across multiple cloud providers.</li>
-        <li>Automate deployment and monitoring using tools like Terraform, Ansible, and Jenkins.</li>
-        <li>Collaborate with developers to optimize performance in cloud environments.</li>
-        <li>Ensure compliance with security and data governance standards.</li>
-      </ul>
+                    <h3>Key Responsibilities</h3>
+                    <ul>
+                        <?php
+                        $responsibilities = explode(';', $row['key_responsibilities']);
+                        foreach ($responsibilities as $responsibility) {
+                            if (trim($responsibility)) {
+                                echo '<li>' . trim($responsibility) . '</li>';
+                            }
+                        }
+                        ?>
+                    </ul>
 
-      <h3>Required Qualifications & Skills</h3>
-      <h4>Essential</h4>
-      <ol>
-        <li>Bachelor’s degree in IT, Computer Science, or related discipline.</li>
-        <li>2+ years’ experience with AWS, Azure, or Google Cloud Platform.</li>
-        <li>Strong knowledge of networking, virtualization, and Linux/Windows servers.</li>
-        <li>Experience with Infrastructure as Code (IaC) and CI/CD pipelines.</li>
-      </ol>
+                    <h3>Required Qualifications & Skills</h3>
+                    <h4>Essential</h4>
+                    <ol>
+                        <?php
+                        $qualifications = explode(';', $row['required_qualifications']);
+                        foreach ($qualifications as $qualification) {
+                            if (trim($qualification)) {
+                                echo '<li>' . trim($qualification) . '</li>';
+                            }
+                        }
+                        ?>
+                    </ol>
 
-      <h4>Preferable</h4>
-      <ul>
-        <li>Certified AWS Solutions Architect or Azure Administrator Associate.</li>
-        <li>Experience with containerization (Docker, Kubernetes).</li>
-        <li>Proficiency in scripting languages (Python, Bash).</li>
-      </ul>
-    </section>
+                    <h4>Preferable</h4>
+                    <ul>
+                        <?php
+                        if (!empty($row['preferable_skills'])) {
+                            $preferable_skills = explode(';', $row['preferable_skills']);
+                            foreach ($preferable_skills as $skill) {
+                                if (trim($skill)) {
+                                    echo '<li>' . trim($skill) . '</li>';
+                                }
+                            }
+                        } else {
+                            echo '<li>None specified</li>';
+                        }
+                        ?>
+                    </ul>
+                </section>
+                
+                <?php
+            }
+            
+            mysqli_free_result($result);
+        } else {
+            // If no jobs found in database, show error message
+            echo '<div class="error-message">';
+            echo '<h2>No Job Positions Available</h2>';
+            echo '<p>We are currently not hiring. Please check back later for new opportunities.</p>';
+            echo '</div>';
+        }
+        
+        mysqli_close($conn);
+    } else {
+        // Database connection failed
+        echo '<div class="error-message">';
+        echo '<h2>Database Connection Error</h2>';
+        echo '<p>Unable to load job positions at this time. Please try again later.</p>';
+        echo '</div>';
+    }
+    ?>
 
-    <div class="job_divider"></div>
-
-    <!-- Cybersecurity Analyst Job Section -->
-    <section id="job2" class="job_card">
-      <h2>Position 2: Cybersecurity Analyst</h2>
-
-      <div class="job_summary">
-        <p><strong>Reference No:</strong> SEC02</p>
-        <p><strong>Reports To:</strong> Security Operations Manager</p>
-        <p><strong>Salary Range:</strong> $88,000 – $121,000 per year</p>
-      </div>
-
-      <h3>Position Description</h3>
-      <p>
-        The Cybersecurity Analyst monitors, analyzes, and responds to potential threats across organizational systems.
-        Responsibilities include using SIEM tools, investigating incidents, conducting vulnerability assessments,
-        and improving defense mechanisms to protect company assets.
-      </p>
-
-      <h3>Key Responsibilities</h3>
-      <ul>
-        <li>Monitor system logs for suspicious activity using SIEM platforms.</li>
-        <li>Respond to and document security incidents and breaches.</li>
-        <li>Conduct vulnerability scans and risk assessments regularly.</li>
-        <li>Collaborate with IT teams to implement security improvements.</li>
-      </ul>
-
-      <h3>Required Qualifications & Skills</h3>
-      <h4>Essential</h4>
-      <ol>
-        <li>Bachelor’s degree in Cybersecurity, IT, or Computer Science.</li>
-        <li>Strong knowledge of network security, firewalls, and IDS/IPS systems.</li>
-        <li>Experience with Splunk, Wireshark, or Nessus tools.</li>
-        <li>2+ years’ experience with AWS, Azure, or Google Cloud Platform.</li>
-      </ol>
-
-      <h4>Preferable</h4>
-      <ul>
-        <li>Certifications: CompTIA Security+, CEH, or CISSP.</li>
-        <li>Experience with cloud security platforms and compliance frameworks.</li>
-        <li>Understanding of ISO 27001 and NIST standards.</li>
-      </ul>
-    </section>
-
-    <!-- Front-End Developer Job Section -->
-    <section id="job3" class="job_card">
-      <h2>Position 3: Front-End Developer</h2>
-
-      <div class="job_summary">
-        <p><strong>Reference No:</strong> FED03</p>
-        <p><strong>Reports To:</strong> UI/UX Lead Designer</p>
-        <p><strong>Salary Range:</strong> $80,000 – $105,000 per year</p>
-      </div>
-
-      <h3>Position Description</h3>
-      <p>
-        The Front-End Developer will design, build, and maintain responsive web interfaces that deliver outstanding user
-        experiences.
-        Working closely with designers and back-end engineers, this role requires strong knowledge of modern front-end
-        technologies,
-        accessibility standards, and performance optimization.
-      </p>
-
-      <h3>Key Responsibilities</h3>
-      <ul>
-        <li>Develop and maintain front-end features using HTML5, CSS3, and JavaScript (ES6+).</li>
-        <li>Implement responsive layouts and animations using frameworks such as React or Vue.js.</li>
-        <li>Collaborate with UX/UI designers to translate design mockups into functional interfaces.</li>
-        <li>Ensure accessibility, browser compatibility, and high performance across all devices.</li>
-      </ul>
-
-      <h3>Required Qualifications & Skills</h3>
-
-      <h4>Essential</h4>
-      <ol>
-        <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>
-        <li>Strong proficiency in HTML, CSS, and JavaScript.</li>
-        <li>Experience with responsive design and cross-browser testing.</li>
-        <li>Understanding of RESTful APIs and version control systems (e.g., Git).</li>
-      </ol>
-
-      <h4>Preferable</h4>
-      <ul>
-        <li>Experience with React, Vue.js, or Angular frameworks.</li>
-        <li>Familiarity with CSS preprocessors (SASS/LESS) and front-end build tools (Webpack, Vite).</li>
-        <li>Knowledge of web accessibility (WCAG) and performance optimization best practices.</li>
-      </ul>
-    </section>
     <aside id="job_facts">
       <h3>Did You Know?</h3>
-      <p>
-        Cloud Engineers and Cybersecurity Analysts are among the top 5 fastest-growing IT careers worldwide.
-        Their combined expertise ensures both innovation and protection in modern digital infrastructure.
-      </p>
+      <p>Cloud Engineers and Cybersecurity Analysts are among the top 5 fastest-growing IT careers worldwide. Their combined expertise ensures both innovation and protection in modern digital infrastructure.</p>
     </aside>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer_container">
-      <p>TheDataFlow &copy; 2025 — COS10026 Project Part 1</p>
-      <p>
-        Contact:
-        <a href="mailto:info@thedataflow.com.au">info@thedataflow.com.au</a>
-      </p>
-      <p>Our Jira project management link:
-        <a
-          href="https://kevinlamkhai7.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiMzYxODI3ZDVkZWM4NDI0NDhkY2QwMTFmMzhhNGEzNDYiLCJwIjoiaiJ9" target="_blank">Jira
-          Project
-        </a></p>
-      <p>Our Github repository link: <a href="https://github.com/WebTechnologyProject-Sep2025/COS10026.1-Group-6" target="_blank">Group 6
-          Github repository</a></p>
-    </div>
-  </footer>
+  <?php include 'footer.inc'; ?>
 </body>
-
 </html>
