@@ -93,14 +93,14 @@ SET time_zone = "+00:00";
 
  -- Creating hr_users table
  CREATE TABLE IF NOT EXISTS `hr_users` (
-  `user_id` int(11) NOT NULL,
+  `hr_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(250) NOT NULL,
   `failed_attempt` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+)
 
 -- Dumping data for table `hr_users`
-INSERT INTO `hr_users` (`user_id`, `username`, `password`, `failed_attempt`) VALUES
+INSERT INTO `hr_users` (`hr_id`, `username`, `password`, `failed_attempt`) VALUES
 (1, 'Duy Anh', '$2y$10$Pj68p6Bahfxeo31sIkwxzOP2R4cS3WiLI.Ag/E.38YGYQO2CyuYW2', 0),
 (2, 'Phuoc', '$2y$10$aacNGfaUWDw6vRWDj4TVhOszDWhZpvBKH0Q4Kmz4V0VBcu8z8/B02', 0),
 (3, 'Khaibatau', '$2y$10$xXPv7ADjjkKMUCvoFnDaNu8atBy/w4//sxz0NR.eh3XzsOpqsBLMC', 0),
@@ -108,10 +108,18 @@ INSERT INTO `hr_users` (`user_id`, `username`, `password`, `failed_attempt`) VAL
 
 -- Indexes for table `hr_users`
 ALTER TABLE `hr_users`
-  ADD PRIMARY KEY (`user_id`),
+  ADD PRIMARY KEY (`hr_id`),
   ADD UNIQUE KEY `username` (`username`);
 
 -- AUTO_INCREMENT for table `hr_users`
 ALTER TABLE `hr_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `hr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
+
+CREATE TABLE IF NOT EXISTS user (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  userpassword VARCHAR(255) NOT NULL,
+  DATETIME last_login, -- Timestamp of last login
+  DATETIME data_created DEFAULT CURRENT_TIMESTAMP -- Timestamp of account creation
+)

@@ -1,16 +1,16 @@
 <?php
  session_start();
- require_once 'config.php';
+ require_once 'settings.php';
  $max_attempts = 3;
  if (!isset($_POST['username'], $_POST['password'])) {
     header('Location: login.php');
-    exit();
+    exit(); //If both usrename and password aren't provided or one is missing, redirect to login.php
 }
 
 $username_attempt = $_POST['username'];
 $password_attempt = $_POST['password'];
 
-$stmt = $conn->prepare("SELECT user_id, password, failed_attempt FROM hr_users WHERE username = ?");
+$stmt = $conn->prepare("SELECT hr_id, password, failed_attempt FROM hr_users WHERE username = ?");
 $stmt->bind_param("s", $username_attempt);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -26,20 +26,20 @@ if ($result->num_rows === 1) {
 
     if (password_verify($password_attempt, $user['password'])) {
         
-        $update_stmt = $conn->prepare("UPDATE hr_users SET failed_attempt = 0 WHERE user_id = ?");
-        $update_stmt->bind_param("i", $user['user_id']);
+        $update_stmt = $conn->prepare("UPDATE hr_users SET failed_attempt = 0 WHERE hr_id = ?");
+        $update_stmt->bind_param("i", $user['hr_id']);
         $update_stmt->execute();
         $update_stmt->close();
 
-        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['hr_id'] = $user['hr_id'];
         header('Location: manage.php');
         exit();
 
     } else {
         
         $new_attempts = $user['failed_attempt'] + 1;
-        $update_stmt = $conn->prepare("UPDATE hr_users SET failed_attempt = ? WHERE user_id = ?");
-        $update_stmt->bind_param("ii", $new_attempts, $user['user_id']);
+        $update_stmt = $conn->prepare("UPDATE hr_users SET failed_attempt = ? WHERE hr_id = ?");
+        $update_stmt->bind_param("ii", $new_attempts, $user['hr_id']);
         $update_stmt->execute();
         $update_stmt->close();
         
