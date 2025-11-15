@@ -112,7 +112,7 @@
 
       <div class="button_recruit">
 
-        <a href="apply.html">Click here to apply!</a>
+        <a href="apply.php">Click here to apply!</a>
 
       </div>
 
