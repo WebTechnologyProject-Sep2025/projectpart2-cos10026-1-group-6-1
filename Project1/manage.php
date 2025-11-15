@@ -9,6 +9,7 @@
         $result = mysqli_query($dbconn, $query);
     
         if ($result && mysqli_num_rows($result) > 0) {
+            echo "<h1>EOI Table</h1>";
             echo "<table border='1'>";
             echo "<tr>
                     <th>EOInumber</th>
@@ -37,6 +38,7 @@
             }
 
             echo "</table>";
+            echo "<br>";
         } else {
             echo "<p>No EOI record available.</p>";
         }
@@ -57,7 +59,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-  <title>EOI Search</title>
+  <title>EOI Record</title>
 </head>
 <body>
   <form method="GET" action="manage.php">
