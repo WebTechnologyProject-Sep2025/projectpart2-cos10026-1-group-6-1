@@ -6,6 +6,7 @@
     <meta name="description" content="footer">
     <meta name="keywords" content="footer, SwinVN, Project2">
     <meta name="author" content="COS10026.1 Group 6">
+    <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <footer class="site-footer">
     <div class="footer_container">

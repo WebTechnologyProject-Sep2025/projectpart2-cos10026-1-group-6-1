@@ -7,6 +7,7 @@
   <meta name="keywords" content="enhancements, features, technical improvements">
   <meta name="author" content="Pham Duc Minh Quan">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/logo_dataflow.png">
   <title>Project Enhancements</title>
   <link rel="stylesheet" href="styles/styles.css">
 </head>

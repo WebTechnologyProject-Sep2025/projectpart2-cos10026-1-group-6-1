@@ -58,6 +58,7 @@
 <html>
 <head>
   <title>EOI Search</title>
+  <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <body>
   <form method="GET" action="manage.php">

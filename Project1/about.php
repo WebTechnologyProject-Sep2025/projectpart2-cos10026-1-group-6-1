@@ -7,6 +7,7 @@
   <meta name="description" content="about us">
   <meta name="country" content="Vietnam">
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/logo_dataflow.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ABOUT US</title>
 </head>

@@ -6,6 +6,7 @@
     <meta name="description" content="nav">
     <meta name="keywords" content="nav, SwinVN, Project2">
     <meta name="author" content="COS10026.1 Group 6">
+    <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <nav>
       <a href="index.php" class="menu_left">
