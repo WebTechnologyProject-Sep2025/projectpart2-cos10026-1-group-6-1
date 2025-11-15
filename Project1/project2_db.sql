@@ -51,6 +51,36 @@ CREATE TABLE IF NOT EXISTS jobs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Inserting values to the jobs table
+INSERT INTO jobs (
+    job_reference_number, job_title, reports_to, salary_range, position_description,
+    key_responsibilities, required_qualifications, essential_skills, preferable_skills
+)
+VALUES
+-- Cloud Engineer
+('CLD01', 'Cloud Engineer', 'Lead Cloud Architect', '$90,000 – $115,000 per annum',
+ 'Designs, deploys, and manages scalable cloud infrastructure using AWS and Azure.',
+ 'Build and maintain cloud infrastructure; automate deployments; collaborate with developers; ensure compliance with security standards.',
+ 'Bachelor’s degree in IT, Computer Science, or related discipline; 2+ years’ experience with cloud platforms.',
+ 'AWS, Azure, Google Cloud, Networking, Virtualization, Linux, CI/CD pipelines.',
+ 'AWS Solutions Architect certification, Docker, Kubernetes, Python scripting.'),
+
+-- Cybersecurity Analyst
+('SEC02', 'Cybersecurity Analyst', 'Security Operations Manager', '$88,000 – $121,000 per year',
+ 'Monitors and responds to potential threats using SIEM tools and vulnerability assessments.',
+ 'Monitor system logs; respond to incidents; conduct vulnerability scans; collaborate with IT teams.',
+ 'Bachelor’s degree in Cybersecurity or IT; strong knowledge of network security and firewalls; 2+ years’ experience.',
+ 'Network Security, IDS/IPS, SIEM Tools (Splunk, Wireshark, Nessus).',
+ 'Security+, CEH, or CISSP certifications; experience with cloud security and compliance frameworks.'),
+
+-- Front-End Developer
+('FED03', 'Front-End Developer', 'UI/UX Lead Designer', '$80,000 – $105,000 per year',
+ 'Designs and maintains responsive web interfaces ensuring accessibility and performance.',
+ 'Develop UI using HTML5, CSS3, JavaScript; ensure accessibility and browser compatibility; collaborate with designers.',
+ 'Bachelor’s degree in Computer Science or related; strong proficiency in HTML, CSS, JavaScript; experience with responsive design.',
+ 'HTML, CSS, JavaScript, Responsive Design, REST APIs, Git.',
+ 'React, Vue.js, Angular, SASS/LESS, Webpack, Accessibility best practices.');
+
 -- hr_users table (fixed)
 CREATE TABLE IF NOT EXISTS hr_user (
   hr_user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
