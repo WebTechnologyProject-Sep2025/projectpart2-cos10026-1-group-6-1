@@ -1565,17 +1565,12 @@ textarea {
 }
 
 /* Enhancement Page Styles - Clean Red Theme */
-section.implementation-notes > h2 {
-    text-align: center;
-    color: var(--red);
-}
 .enhancements-intro {
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem;
-  margin-top: 10px;
-  background: rgb(205, 204, 204);
-  color: black;
+  background: #dc2626;
+  color: white;
   border-radius: 10px;
 }
 
@@ -1596,7 +1591,7 @@ section.implementation-notes > h2 {
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid var(--red);
+  border-left: 4px solid #dc2626;
 }
 
 .enhancement-item:hover {
@@ -1617,7 +1612,7 @@ section.implementation-notes > h2 {
 }
 
 .enhancement-item strong {
-  color: var(--red);
+  color: #dc2626;
 }
 
 /* Technical Specifications Table */
@@ -1647,20 +1642,13 @@ section.implementation-notes > h2 {
 }
 
 .specs-table th {
-  background: var(--red);
+  background: #dc2626;
   color: white;
   font-weight: 600;
 }
 
 .specs-table tr:hover {
   background-color: #fef2f2;
-}
-
-/* Implementation notes styling */
-div.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* to have 3 columns (1fr 1fr 1fr) */
-    gap: 2rem;
 }
 
 /* Responsive design */

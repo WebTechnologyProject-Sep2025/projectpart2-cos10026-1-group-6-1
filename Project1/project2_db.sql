@@ -1,7 +1,9 @@
+
+-- remove the comment markers to create the database and tables in local MySQL server phpmyadmin`
 CREATE DATABASE IF NOT EXISTS project2_db;
 USE project2_db;
 
--- eoi table
+--Creating eoi table
 CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     job_reference VARCHAR(10) NOT NULL,
@@ -15,6 +17,7 @@ CREATE TABLE IF NOT EXISTS eoi (
     postcode CHAR(4) NOT NULL,
     email VARCHAR(255) NOT NULL,
     phone_number VARCHAR(12) NOT NULL,
+    -- 16 skill fields for all checkbox options
     skill1 VARCHAR(50),
     skill2 VARCHAR(50),
     skill3 VARCHAR(50),
@@ -36,45 +39,79 @@ CREATE TABLE IF NOT EXISTS eoi (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- jobs table
-CREATE TABLE IF NOT EXISTS jobs (
+
+--Creating jobs table
+    CREATE TABLE IF NOT EXISTS jobs (
     job_id INT AUTO_INCREMENT PRIMARY KEY,
-    job_reference_number VARCHAR(10) NOT NULL UNIQUE,
-    job_title VARCHAR(100) NOT NULL,
-    reports_to VARCHAR(100),
-    salary_range VARCHAR(100),
-    position_description TEXT NOT NULL,
-    key_responsibilities TEXT NOT NULL,
-    required_qualifications TEXT NOT NULL,
-    essential_skills TEXT NOT NULL,
-    preferable_skills TEXT,
+    job_reference_number VARCHAR(10) NOT NULL UNIQUE,    -- e.g. CLD01, SEC02, FED03
+    job_title VARCHAR(100) NOT NULL,                     -- e.g. Cloud Engineer
+    reports_to VARCHAR(100),                             -- e.g. Lead Cloud Architect
+    salary_range VARCHAR(100),                           -- e.g. $90,000 – $115,000 per annum
+    position_description TEXT NOT NULL,                  -- full paragraph describing the job
+    key_responsibilities TEXT NOT NULL,                  -- list of responsibilities
+    required_qualifications TEXT NOT NULL,               -- general qualification overview
+    essential_skills TEXT NOT NULL,                      -- list of essential skills
+    preferable_skills TEXT,                              -- list of preferable skills
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- hr_users table (fixed)
-CREATE TABLE IF NOT EXISTS hr_user (
-  hr_user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  hrname VARCHAR(100) NOT NULL UNIQUE,
-  hrpassword VARCHAR(255) NOT NULL,
-  failed_attempts INT NOT NULL DEFAULT 0,
-  locked_until DATETIME NULL,
-  last_login DATETIME NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Inserting job listings into jobs table
 
--- insert HR data
-INSERT INTO hr_user (hrname, hrpassword, failed_attempts) VALUES
-('Duy Anh', '$2y$10$Pj68p6Bahfxeo31sIkwxzOP2R4cS3WiLI.Ag/E.38YGYQO2CyuYW2', 0),
-('Phuoc', '$2y$10$aacNGfaUWDw6vRWDj4TVhOszDWhZpvBKH0Q4Kmz4V0VBcu8z8/B02', 0),
-('Khaibatau', '$2y$10$xXPv7ADjjkKMUCvoFnDaNu8atBy/w4//sxz0NR.eh3XzsOpqsBLMC', 0),
-('Quan', '$2y$10$CtXdAqRbXzhuqhVMoVKb/OY/p8WcCAetvmMNRqTTREPiQ37ghy1bG', 0);
+INSERT INTO jobs (
+    job_reference_number, job_title, reports_to, salary_range, position_description,
+    key_responsibilities, required_qualifications, essential_skills, preferable_skills
+)
+VALUES
+-- Cloud Engineer
+('CLD01', 'Cloud Engineer', 'Lead Cloud Architect', '$90,000 – $115,000 per annum',
+ 'Designs, deploys, and manages scalable cloud infrastructure using AWS and Azure.',
+ 'Build and maintain cloud infrastructure; automate deployments; collaborate with developers; ensure compliance with security standards.',
+ 'Bachelor’s degree in IT, Computer Science, or related discipline; 2+ years’ experience with cloud platforms.',
+ 'AWS, Azure, Google Cloud, Networking, Virtualization, Linux, CI/CD pipelines.',
+ 'AWS Solutions Architect certification, Docker, Kubernetes, Python scripting.'),
 
--- users table
-CREATE TABLE IF NOT EXISTS user (
-  user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(50) NOT NULL UNIQUE,
-  userpassword VARCHAR(255) NOT NULL,
-  failed_attempts INT NOT NULL DEFAULT 0,
-  locked_until DATETIME NULL,
-  last_login DATETIME NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Cybersecurity Analyst
+('SEC02', 'Cybersecurity Analyst', 'Security Operations Manager', '$88,000 – $121,000 per year',
+ 'Monitors and responds to potential threats using SIEM tools and vulnerability assessments.',
+ 'Monitor system logs; respond to incidents; conduct vulnerability scans; collaborate with IT teams.',
+ 'Bachelor’s degree in Cybersecurity or IT; strong knowledge of network security and firewalls; 2+ years’ experience.',
+ 'Network Security, IDS/IPS, SIEM Tools (Splunk, Wireshark, Nessus).',
+ 'Security+, CEH, or CISSP certifications; experience with cloud security and compliance frameworks.'),
+
+-- Front-End Developer
+('FED03', 'Front-End Developer', 'UI/UX Lead Designer', '$80,000 – $105,000 per year',
+ 'Designs and maintains responsive web interfaces ensuring accessibility and performance.',
+ 'Develop UI using HTML5, CSS3, JavaScript; ensure accessibility and browser compatibility; collaborate with designers.',
+ 'Bachelor’s degree in Computer Science or related; strong proficiency in HTML, CSS, JavaScript; experience with responsive design.',
+ 'HTML, CSS, JavaScript, Responsive Design, REST APIs, Git.',
+ 'React, Vue.js, Angular, SASS/LESS, Webpack, Accessibility best practices.');
+
+-- Start of hr_users table from hr_users.sql
+START TRANSACTION;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+ -- Creating hr_users table
+ CREATE TABLE IF NOT EXISTS `hr_users` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `failed_attempt` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table `hr_users`
+INSERT INTO `hr_users` (`user_id`, `username`, `password`, `failed_attempt`) VALUES
+(1, 'Duy Anh', '$2y$10$Pj68p6Bahfxeo31sIkwxzOP2R4cS3WiLI.Ag/E.38YGYQO2CyuYW2', 0),
+(2, 'Phuoc', '$2y$10$aacNGfaUWDw6vRWDj4TVhOszDWhZpvBKH0Q4Kmz4V0VBcu8z8/B02', 0),
+(3, 'Khaibatau', '$2y$10$xXPv7ADjjkKMUCvoFnDaNu8atBy/w4//sxz0NR.eh3XzsOpqsBLMC', 0),
+(4, 'Quan', '$2y$10$CtXdAqRbXzhuqhVMoVKb/OY/p8WcCAetvmMNRqTTREPiQ37ghy1bG', 0);
+
+-- Indexes for table `hr_users`
+ALTER TABLE `hr_users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+-- AUTO_INCREMENT for table `hr_users`
+ALTER TABLE `hr_users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
