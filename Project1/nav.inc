@@ -8,7 +8,7 @@
     <meta name="author" content="COS10026.1 Group 6">
 </head>
 <nav>
-      <a href="index.html" class="menu_left">
+      <a href="index.php" class="menu_left">
         <img src="images/logo_dataflow.png" alt="Company Logo">
         <span>DataFlow</span>
       </a>
