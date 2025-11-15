@@ -26,7 +26,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
           complex data streams into clear, actionable intelligence,
           ensuring your business operates with <strong>unmatched efficiency and precision.</strong></p>
         <div class="read_more_button anim">
-          <a href="apply.php">Read More</a>
+          <a href="about.php">Read More</a>
         </div>
       </div>
 
