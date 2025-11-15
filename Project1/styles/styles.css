@@ -1674,4 +1674,6 @@ textarea {
     text-align: center;
 }
 /* eoi table and search result table */
-
+.search_result_table{
+    border-style: solid;
+}
