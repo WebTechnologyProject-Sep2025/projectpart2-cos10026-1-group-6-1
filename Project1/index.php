@@ -34,7 +34,7 @@
             strategic precision.</strong></p>
 
         <div id="read_more_button_2">
-          <a href="about.html">Know More About Us</a>
+          <a href="about.php">Know More About Us</a>
         </div>
       </div>
     </div>
