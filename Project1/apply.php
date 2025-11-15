@@ -16,7 +16,7 @@
  <?php include 'nav.inc'; include 'header.inc.php';?>
   <main class="main_container">
     <div class="form_container">
-      <form class="application_form" method="post" action="testing_process_eoi.php">
+      <form class="application_form" method="post" action="process_eoi.php" novalidate = 'novalidate'>
         <div id="logo_apply">
           <img src="images/logo_dataflow.png" alt="dataflow_logo">
         </div>
@@ -139,7 +139,7 @@
           <br>
           <!-- submit button -->
           <p class="apply">Submit your application form</p>
-          <label id="honest"> <input type="checkbox" name="skills[]" value="All I ticked are true" required="required"
+          <label id="honest"> <input type="checkbox" name="declaration" value="declaration" required="required"
                 checked="checked">The skills I ticked are true representation of my
               abilities</label>
           <input type="submit" value="Apply" id="apply">
