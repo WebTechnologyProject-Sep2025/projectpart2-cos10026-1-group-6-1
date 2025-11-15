@@ -6,6 +6,7 @@
     <meta name="description" content="header">
     <meta name="keywords" content="header, SwinVN, Project2">
     <meta name="author" content="COS10026.1 Group 6">
+    <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <?php
 // Gives the full path of the currently executing script
@@ -33,7 +34,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <div class="robot_with_light anim">
         <img src="images/robot_with_light.png" alt="Robot With Yellow Shadow">
       </div>
-
       <div id="logo_background">
         <img src="images/logo_dataflow.png" alt="Logo Background">
       </div>

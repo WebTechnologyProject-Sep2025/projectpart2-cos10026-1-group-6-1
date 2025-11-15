@@ -6,8 +6,9 @@
   <meta name="author" content="Vu Duy Anh">
   <meta name="description" content="Technology Company">
   <meta name="country" content="Vietnam">
-  <link rel="stylesheet" href="styles/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/logo_dataflow.png">
   <title>The DataFlow Team</title>
 </head>
 

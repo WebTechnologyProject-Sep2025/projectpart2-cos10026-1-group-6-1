@@ -13,6 +13,7 @@ $errormsg = $_GET['error'] ?? ''
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR LOGIN</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <body>
     <h1 class="login_page_title">EOI DATABASE ACCESS</h1>

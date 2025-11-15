@@ -60,6 +60,7 @@
 <html>
 <head>
   <title>EOI Record</title>
+  <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <body>
   <form method="GET" action="manage.php">

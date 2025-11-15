@@ -8,6 +8,7 @@
   <meta name="keywords" content="job, application, form">
   <title>Job Application Form</title>
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/logo_dataflow.png">
 </head>
 
 <body>
