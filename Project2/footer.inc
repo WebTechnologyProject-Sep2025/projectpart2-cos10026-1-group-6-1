@@ -24,9 +24,9 @@
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $_SESSION = array(); 
     session_destroy();
-    header("Location: register.php"); 
+    header("Location: login.php");
     exit(); 
 }
 ?>
-<br><a href="register.php?action=logout">Logout</a> <br>
+<br><a href="login.php?action=logout">Logout</a> <br>
   </footer>

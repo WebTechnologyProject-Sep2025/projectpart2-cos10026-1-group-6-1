@@ -224,6 +224,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 }
 ?>
 <br><a href="manage.php?action=logout">Logout</a>
+<br><a href="index.php">Return to Home Page</a>
 
 
 <!-- logout process -->

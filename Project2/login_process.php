@@ -89,8 +89,8 @@ if ($hr_result->num_rows === 1) {
 
         session_regenerate_id(true);
         $_SESSION['hr_user_id'] = $user['hr_user_id'];
-        $_SESSION['username'] = $user['hrname'];
-        header("Location: manage.php");
+        $_SESSION['hrname'] = $user['hrname'];
+        header("Location: index.php");
         exit();
     } else {
         $new_attempts = $user['failed_attempts'] + 1;
