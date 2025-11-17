@@ -16,6 +16,8 @@ $errormsg = $_GET['error'] ?? ''
     <link rel="icon" href="images/logo_dataflow.png">
 </head>
 <body>
+    <?php $pageTitle = "Login" ?>
+    <?php include 'nav.inc'; include 'header.inc.php'; ?>
     <h1 class="login_page_title">EOI DATABASE ACCESS</h1>
     <?php if ($errormsg): ?>
         <p><?php echo ($errormsg) ?></p>
@@ -27,6 +29,6 @@ $errormsg = $_GET['error'] ?? ''
         <input type="password" name="password" required> <br>
         <button type="submit">Login</button>
     </form>
-    
+    <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -1686,4 +1686,8 @@ div.notes-grid {
     text-align: center;
 }
 /* eoi table and search result table */
-
+/* Register page */
+#register_button {
+    text-align: center;
+    margin-top: 20px;
+}

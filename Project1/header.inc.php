@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="header">
-    <meta name="keywords" content="header, SwinVN, Project2">
-    <meta name="author" content="COS10026.1 Group 6">
-    <link rel="icon" href="images/logo_dataflow.png">
-</head>
 <?php
 // Gives the full path of the currently executing script
 $current_page = basename($_SERVER['PHP_SELF']); 
