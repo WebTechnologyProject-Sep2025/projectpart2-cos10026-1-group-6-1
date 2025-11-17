@@ -18,7 +18,7 @@ $errormsg = $_GET['error'] ?? ''
 <body>
     <?php $pageTitle = "Login" ?>
     <?php include 'nav.inc'; include 'header.inc.php'; ?>
-    <?php include 'testvicili.inc.php'; ?>
+    <?php include 'welcome.inc.php'; ?>
     <h1 class="login_page_title">LOG IN</h1>
     <?php if ($errormsg): ?>
         <p><?php echo ($errormsg) ?></p>

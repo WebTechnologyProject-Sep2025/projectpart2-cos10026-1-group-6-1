@@ -17,7 +17,7 @@
 <body>
   <?php $pageTitle= "Application" ?>
  <?php include 'nav.inc'; include 'header.inc.php';?>
- <?php include 'testvicili.inc.php'; ?>
+ <?php include 'welcome.inc.php'; ?>
   <main class="main_container">
     <div class="form_container">
       <form class="application_form" method="post" action="process_eoi.php" novalidate = 'novalidate'>

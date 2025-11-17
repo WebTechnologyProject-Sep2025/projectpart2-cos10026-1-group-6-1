@@ -21,6 +21,7 @@
   include 'nav.inc'; 
   include 'header.inc.php';
   ?>
+  <?php include 'welcome.inc.php'; ?>
 
   <main class="main_container">
     <section class="enhancements-intro">
