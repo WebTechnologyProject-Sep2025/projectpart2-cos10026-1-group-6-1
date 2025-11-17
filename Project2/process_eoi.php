@@ -216,6 +216,8 @@
                 echo "<p>Thank you for your Expression of Interest. Your application has been successfully recorded.</p>";
                 echo "<p>Your unique **EOINumber** is: <strong>" . $eoi_number . "</strong></p>";
                 echo "<p>Please keep this number for future reference.</p>";
+                echo "<p><a href='apply.php'>Submit another Expression of Interest</a></p>";
+                echo "<p><a href='index.php'>Return to Home Page</a></p>";
                 
             } else {
                 echo "<h2>Database Error!</h2>";

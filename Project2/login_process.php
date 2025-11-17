@@ -87,6 +87,7 @@ if ($hr_result->num_rows === 1) {
         $update->execute();
         $update->close();
 
+        session_regenerate_id(true);
         $_SESSION['hr_user_id'] = $user['hr_user_id'];
         $_SESSION['username'] = $user['hrname'];
         header("Location: manage.php");
@@ -137,9 +138,11 @@ if ($user_result->num_rows === 1) {
         dynamic_bind($update, [$user['user_id']]);
         $update->execute();
         $update->close();
-
+        
+        session_regenerate_id(true);
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['username'] = $user['username'];
+
         header("Location: index.php");
         exit();
     } else {

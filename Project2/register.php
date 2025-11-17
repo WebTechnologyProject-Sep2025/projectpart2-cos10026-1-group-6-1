@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if ($stmt->execute()) {
                         $success_message = "Registration successful! You can now log in.";
-                        $success_message .= '<a href="login.php">Click here to login</a>';
                     } else {
                         $error_message = "Error: Could not register user. " . $stmt->error;
                     }
