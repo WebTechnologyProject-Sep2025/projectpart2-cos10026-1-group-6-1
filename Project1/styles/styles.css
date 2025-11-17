@@ -1564,8 +1564,8 @@ textarea {
     }
 }
 
-/* Enhancement Page Styles - Clean Red Theme */
-section.implementation-notes > h2 {
+/* Enhancement Page Styles*/
+.implementation-notes h2 {
     text-align: center;
     color: var(--red);
 }
