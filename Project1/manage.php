@@ -13,7 +13,6 @@
     if ($dbconn){
         $query = "SELECT * FROM eoi";
         $result = mysqli_query($dbconn, $query);
-    
         if ($result && mysqli_num_rows($result) > 0) {
             echo "<h1>EOI Table</h1>";
             echo "<table border='1'>";
@@ -28,7 +27,6 @@
                     <th>Suburb/Town</th>
                     <th>Status</th>
                 </tr>";
-
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row["EOInumber"] . "</td>";
@@ -93,7 +91,6 @@ if (isset($_GET['search'])) {
                                     job_reference LIKE '%$ref%' OR
                                     status LIKE '%$stat%'";
     $result = mysqli_query($conn, $sql);
-
     if (mysqli_num_rows($result) > 0) {
         echo "<table border='1' cellpadding='5'>";
         echo "<tr>
@@ -122,20 +119,87 @@ if (isset($_GET['search'])) {
         }
         echo "</table>";
     } else {
-        echo "🚫 No matching results found.";
+        echo "No matching results found.";
     }
 } else {
     echo "Please enter a keyword to search.";
 }
-
-mysqli_close($conn);
 ?>
 
 <!-- search result -->
 
-<!-- logout process -->
+
+<!-- Delete all EOIs with a specified job reference -->
+
+<h2>EOI Editor</h2>
+<h3>Delete EOIs by Job Reference</h3>
+<form action="manage.php" method="POST">
+    <label for="jobRefToDelete">Job Reference to Delete:</label>
+    <input type="text" id="jobRefToDelete" name="job_ref_delete" required>
+    <input type="submit" value="Delete EOIs">
+</form>
 <?php
-session_start();
+if (isset($_POST['job_ref_delete'])) {
+    $jobref = $_POST['job_ref_delete'];
+    $jobref = mysqli_real_escape_string($conn, $jobref);
+    $query = "DELETE FROM eoi WHERE job_reference = '$jobref'";
+    if (mysqli_query($conn, $query)) {
+        $rowsDeleted = mysqli_affected_rows($conn);
+        echo "<p style='color: green;'>Successfully deleted $rowsDeleted EOIs for Job Reference **$jobref**.</p>";
+    } else {
+        echo "<p style='color: red;'>Error deleting records: " . mysqli_error($conn) . "</p>";
+    }
+}
+?>
+
+
+<!-- Delete all EOIs with a specified job reference -->
+
+
+
+<!-- Change EOI status -->
+
+<h3>Change EOI Status</h3>
+<form action="manage.php" method="POST">
+    <label for="eoiNumber">EOI Number:</label>
+    <input type="number" id="eoiNumber" name="eoi_number" required>
+
+    <label for="newStatus">New Status:</label>
+    <select id="newStatus" name="new_status" required>
+        <option value="New">New</option>
+        <option value="Current">Current</option>
+        <option value="Final">Final</option>
+    </select>
+    <input type="submit" value="Update Status">
+</form>
+
+<?php
+if (isset($_POST['eoi_number']) && isset($_POST['new_status'])) {
+    $eoiNumber = $_POST['eoi_number'];
+    $newStatus = $_POST['new_status'];
+    $eoiNumber = mysqli_real_escape_string($conn, $eoiNumber);
+    $newStatus = mysqli_real_escape_string($conn, $newStatus);
+    $query = "UPDATE eoi SET Status = '$newStatus' WHERE EOINumber = '$eoiNumber'";
+    if (mysqli_query($conn, $query)) {
+        if (mysqli_affected_rows($conn) > 0) {
+            echo "<p style='color: green;'>Successfully updated EOI $eoiNumber to status $newStatus.</p>";
+        } else {
+            echo "<p style='color: orange;'>No EOI found with number $eoiNumber or the status is already $newStatus.</p>";
+        }
+    } else {
+        echo "<p style='color: red;'>Error updating status: " . mysqli_error($conn) . "</p>";
+    }
+}
+mysqli_close($conn);
+?>
+
+
+<!-- Change EOI status -->
+
+<!-- logout process -->
+
+
+<?php
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $_SESSION = array(); 
     session_destroy();
