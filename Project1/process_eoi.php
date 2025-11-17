@@ -189,20 +189,25 @@
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? {$skill_placeholders})";
         
         if ($stmt = $conn->prepare($sql)) {
-        
+                    
             $bind_types = str_repeat('s', 29); 
-            
-            $bind_params = array_merge(
-                [$bind_types],
-                [
-                    $data['job_ref'], $data['first_name'], $data['last_name'], $data['dob'], $data['gender'], 
-                    $data['street_address'], $data['suburb_town'], $data['state'], $data['postcode'], $data['email'], 
-                    $data['phone_number'], $data['other_skills_text'], $status
-                ],
-                $skill_values
-            );
-            
-            call_user_func_array([$stmt, 'bind_param'], $bind_params);
+
+            $bind_args = [$bind_types]; 
+
+            $all_data = [
+                $data['job_ref'], $data['first_name'], $data['last_name'], $data['dob'], $data['gender'], 
+                $data['street_address'], $data['suburb_town'], $data['state'], $data['postcode'], $data['email'], 
+                $data['phone_number'], $data['other_skills_text'], $status
+            ];
+
+            $all_data = array_merge($all_data, $skill_values);
+
+            foreach ($all_data as &$ref) { 
+                $bind_args[] = &$ref;
+            }
+
+            unset($ref);
+            call_user_func_array([$stmt, 'bind_param'], $bind_args);
 
             if ($stmt->execute()) {
                 $eoi_number = $conn->insert_id; 
