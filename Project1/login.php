@@ -1,9 +1,9 @@
 <?php
     session_start();
-    if (isset($_SESSION['user_id'])){
-    header('location:manage.php');
-    exit();
-}
+    if (isset($_SESSION['hr_user_id']) || isset($_SESSION['user_id'])){
+        header('location:index.php');
+        exit();
+    }
 $errormsg = $_GET['error'] ?? ''
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ $errormsg = $_GET['error'] ?? ''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR LOGIN</title>
+    <title>LOGIN</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="images/logo_dataflow.png">
 </head>

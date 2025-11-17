@@ -132,7 +132,7 @@ mysqli_close($conn);
 ?>
 
 <!-- search result -->
- 
+
 <!-- logout process -->
 <?php
 session_start();

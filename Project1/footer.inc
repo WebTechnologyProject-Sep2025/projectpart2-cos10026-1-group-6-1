@@ -20,4 +20,13 @@
       <p>Our Github repository link: <a href="https://github.com/WebTechnologyProject-Sep2025/projectpart2-cos10026-1-group-6-1" target="_blank">Group 6
           Github repository</a></p>
     </div>
+<?php
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $_SESSION = array(); 
+    session_destroy();
+    header("Location: login.php"); 
+    exit(); 
+}
+?>
+<br><a href="login.php?action=logout">Logout</a>
   </footer>
