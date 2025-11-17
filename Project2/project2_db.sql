@@ -98,7 +98,7 @@ INSERT INTO hr_user (hrname, hrpassword, failed_attempts) VALUES
 ('Khaibatau', '$2y$10$xXPv7ADjjkKMUCvoFnDaNu8atBy/w4//sxz0NR.eh3XzsOpqsBLMC', 0),
 ('Quan', '$2y$10$CtXdAqRbXzhuqhVMoVKb/OY/p8WcCAetvmMNRqTTREPiQ37ghy1bG', 0);
 
--- users table
+-- user table
 CREATE TABLE IF NOT EXISTS user (
   user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) NOT NULL UNIQUE,
@@ -108,3 +108,6 @@ CREATE TABLE IF NOT EXISTS user (
   last_login DATETIME NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO user (username, userpassword) VALUES
+('khai3tau', '$2y$10$gKzkZs0/Y4fm6/tR5P4Jcu94lHGFwUdxp/Qvl.vuwKQs3D8ORFuGS');
