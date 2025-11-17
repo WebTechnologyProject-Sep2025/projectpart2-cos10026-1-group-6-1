@@ -19,7 +19,7 @@ $errormsg = $_GET['error'] ?? ''
     <?php $pageTitle = "Login" ?>
     <?php include 'nav.inc'; include 'header.inc.php'; ?>
     <?php include 'testvicili.inc.php'; ?>
-    <h1 class="login_page_title">EOI DATABASE ACCESS</h1>
+    <h1 class="login_page_title">LOG IN</h1>
     <?php if ($errormsg): ?>
         <p><?php echo ($errormsg) ?></p>
     <?php endif ?>
@@ -30,6 +30,7 @@ $errormsg = $_GET['error'] ?? ''
         <input type="password" name="password" required> <br>
         <button type="submit">Login</button>
     </form>
+    <p class="noaccount">Don't have an account? <a href="register.php">Register here</a></p>
     <?php include 'footer.inc'; ?>
 </body>
 </html>

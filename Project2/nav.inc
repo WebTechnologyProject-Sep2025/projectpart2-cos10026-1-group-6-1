@@ -20,5 +20,6 @@
         <a href="apply.php" class="menu_right">Application</a>
         <a href="about.php" class="menu_right">About us</a>
         <a href="enhancements.php" class="menu_right">Enhancements</a>
+        <a href="register.php" class="menu_right">Login|Register</a>
       </div>
 </nav>
