@@ -43,13 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt->bind_param("ss", $username, $hashedPassword);
 
                     if ($stmt->execute()) {
-                        // Redirect to login.php
-                        header("Location: login.php");
-                        exit();
+                        $success_message = "Registration successful! You can now log in.";
+                        $success_message .= '<a href="login.php">Click here to login</a>';
                     } else {
                         $error_message = "Error: Could not register user. " . $stmt->error;
                     }
-                    $stmt->close();
+                    
                 }
             }
             if (isset($stmt) && $stmt !== false) {
@@ -82,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2 class="form-title">Register</h2>
             
             <?php if (!empty($error_message)): ?>
-                <div class="error_message" style="color: red; margin-bottom: 15px; padding: 10px; background-color: #ffe6e6; border: 1px solid red; border-radius: 5px;">
+                <div class="error_message">
                     <?php echo htmlspecialchars($error_message); ?>
                 </div>
             <?php endif; ?>
 
             <?php if (!empty($success_message)): ?>
-                <div class="success_message" style="color: green; margin-bottom: 15px; padding: 10px; background-color: #e6ffe6; border: 1px solid green; border-radius: 5px;">
+                <div class="success_message">
                     <?php echo htmlspecialchars($success_message); ?>
                 </div>
             <?php endif; ?>
@@ -103,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input id="confirm_password" type="password" name="confirm_password" required="required" minlength="8" maxlength="20" placeholder="Confirm Password" title="Please re-enter your password">
             <br>
             <input type="submit" value="Register" id="register_button">
+            <a href="login.php" class="login_link">Already have an account or just created? Login here.</a>
         </fieldset>
         </form>
     </div>

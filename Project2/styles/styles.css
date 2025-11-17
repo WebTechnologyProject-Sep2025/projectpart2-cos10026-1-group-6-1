@@ -1569,125 +1569,152 @@ textarea {
     text-align: center;
     color: var(--red);
 }
+
 .enhancements-intro {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem;
-  margin-top: 10px;
-  background: rgb(205, 204, 204);
-  color: black;
-  border-radius: 10px;
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    margin-top: 10px;
+    background: rgb(205, 204, 204);
+    color: black;
+    border-radius: 10px;
 }
 
 .enhancements-intro h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .enhancement-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .enhancement-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid var(--red);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--red);
 }
 
 .enhancement-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .enhancement-item h2 {
-  color: #1f2937;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .enhancement-item p {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-  color: #4b5563;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #4b5563;
 }
 
 .enhancement-item strong {
-  color: var(--red);
+    color: var(--red);
 }
 
 /* Technical Specifications Table */
 .technical-specs {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .technical-specs h2 {
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  text-align: center;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .specs-table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .specs-table th,
 .specs-table td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .specs-table th {
-  background: var(--red);
-  color: white;
-  font-weight: 600;
+    background: var(--red);
+    color: white;
+    font-weight: 600;
 }
 
 .specs-table tr:hover {
-  background-color: #fef2f2;
+    background-color: #fef2f2;
 }
 
 /* Implementation notes styling */
 div.notes-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* to have 3 columns (1fr 1fr 1fr) */
+    grid-template-columns: repeat(3, 1fr);
+    /* to have 3 columns (1fr 1fr 1fr) */
     gap: 2rem;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .enhancement-item {
-    padding: 1.5rem;
-  }
-  
-  .technical-specs {
-    padding: 1.5rem;
-  }
-  
-  .specs-table th,
-  .specs-table td {
-    padding: 0.75rem;
-  }
+    .enhancement-item {
+        padding: 1.5rem;
+    }
+
+    .technical-specs {
+        padding: 1.5rem;
+    }
+
+    .specs-table th,
+    .specs-table td {
+        padding: 0.75rem;
+    }
 }
+
 /* Login form */
-.login_form{
+.login_form {
     text-align: center;
 }
-.login_page_title{
+
+.login_page_title {
     text-align: center;
 }
+p.noaccount {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
 /* eoi table and search result table */
 /* Register page */
 #register_button {
     text-align: center;
     margin-top: 20px;
+}
+
+div.error_message {
+    color: red;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+div.success_message {
+    color: green;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e6ffe6;
+    border: 1px solid green;
+    border-radius: 5px;
 }
