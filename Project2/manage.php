@@ -17,16 +17,24 @@
             echo "<h1>EOI Table</h1>";
             echo "<table border='1'>";
             echo "<tr>
-                    <th>EOInumber</th>
-                    <th>Job Reference Number</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Street Address</th>
-                    <th>Suburb/Town</th>
-                    <th>Status</th>
-                </tr>";
+                <th>EOInumber</th>
+                <th>Job Reference Number</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Street Address</th>
+                <th>Suburb/Town</th>
+                <th>Status</th>
+                <th>Phone Number</th>
+                <th>Email</th>";
+        
+                for ($i = 1; $i <= 16; $i++) {
+                    echo "<th>Skill $i</th>";
+                }
+
+                echo "<th>Other Skills</th>";
+            echo "</tr>";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row["EOInumber"] . "</td>";
@@ -38,6 +46,14 @@
                 echo "<td>" . $row["street_address"] . "</td>";
                 echo "<td>" . $row["suburb_town"] . "</td>";
                 echo "<td>" . $row["status"] . "</td>";
+                echo "<td>" . $row["phone_number"] . "</td>";
+                echo "<td>" . $row["email"] . "</td>";
+                for ($i = 1; $i <= 16; $i++) {
+                    $field = "skill$i";
+                    echo "<td>{$row[$field]}</td>";
+                }
+                echo "<td>" . $row["other_skills"] . "</td>";
+
                 echo "</tr>";
             }
 
