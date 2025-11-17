@@ -1,9 +1,9 @@
 <?php
-    session_start();
     if (isset($_SESSION['hr_user_id']) || isset($_SESSION['user_id'])){
         header('location:index.php');
         exit();
     }
+    session_start();
 $errormsg = $_GET['error'] ?? ''
 ?>
 <!DOCTYPE html>
@@ -18,6 +18,7 @@ $errormsg = $_GET['error'] ?? ''
 <body>
     <?php $pageTitle = "Login" ?>
     <?php include 'nav.inc'; include 'header.inc.php'; ?>
+    <?php include 'testvicili.inc.php'; ?>
     <h1 class="login_page_title">EOI DATABASE ACCESS</h1>
     <?php if ($errormsg): ?>
         <p><?php echo ($errormsg) ?></p>

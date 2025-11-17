@@ -17,7 +17,7 @@
 
 <body>
   <?php include 'nav.inc'; include 'header.inc.php';?>
-
+  <?php include 'testvicili.inc.php'; ?>
   <main class="main_container">
 
     <!-- THIS IS THE CONTAINER OF HOMEPAGE 1 -->
