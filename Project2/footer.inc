@@ -29,6 +29,4 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 }
 ?>
 <br><a href="register.php?action=logout">Logout</a> <br>
-    <a href="register.php">Register</a> <br>
-    <a href="login.php">Have an account?</a>
   </footer>
